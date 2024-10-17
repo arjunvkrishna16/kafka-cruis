@@ -1,0 +1,129 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-3
+  labels:
+    app: kafka-3
+spec:
+  clusterIP: None
+  ports:
+  - port: 9092
+    name: kafka-3
+  selector:
+    app: kafka-3
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka-3
+spec:
+  serviceName: kafka-3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-3
+  template:
+    metadata:
+      labels:
+        app: kafka-3
+    spec:
+      containers:
+      - name: kafka-3
+        #image: docker.io/bitnami/kafka:3.8
+        image: arjun/kafka:v2
+        ports:
+        - containerPort: 9092
+        env:
+        # KRaft settings
+        - name: KAFKA_CFG_NODE_ID
+          value: "3"
+        - name: KAFKA_CFG_PROCESS_ROLES
+          value: "controller,broker"
+        - name: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+          value: "0@kafka-0:9093,1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093"
+        - name: KAFKA_KRAFT_CLUSTER_ID
+          value: "abcdefghijklmnopqrstuv"
+        # Listeners
+        - name: KAFKA_CFG_LISTENERS
+          value: "PLAINTEXT://:9092,CONTROLLER://:9093"
+        - name: KAFKA_CFG_ADVERTISED_LISTENERS
+          value: "PLAINTEXT://:9092"
+        - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+          value: "PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT"
+        - name: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
+          value: "CONTROLLER"
+        - name: KAFKA_CFG_INTER_BROKER_LISTENER_NAME
+          value: "PLAINTEXT"
+        # Clustering
+        - name: KAFKA_CFG_OFFSETS_TOPIC_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_CFG_TRANSACTION_STATE_LOG_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR
+          value: "2"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-4
+  labels:
+    app: kafka-4
+spec:
+  clusterIP: None
+  ports:
+  - port: 9092
+    name: kafka-4
+  selector:
+    app: kafka-4
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka-4
+spec:
+  serviceName: kafka-4
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-4
+  template:
+    metadata:
+      labels:
+        app: kafka-4
+    spec:
+      containers:
+      - name: kafka-4
+        #image: docker.io/bitnami/kafka:3.8
+        image: arjun/kafka:v2
+        ports:
+        - containerPort: 9092
+        env:
+        # KRaft settings
+        - name: KAFKA_CFG_NODE_ID
+          value: "4"
+        - name: KAFKA_CFG_PROCESS_ROLES
+          value: "controller,broker"
+        - name: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+          value: "0@kafka-0:9093,1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093,4@kafka-4:9093"
+        - name: KAFKA_KRAFT_CLUSTER_ID
+          value: "abcdefghijklmnopqrstuv"
+        # Listeners
+        - name: KAFKA_CFG_LISTENERS
+          value: "PLAINTEXT://:9092,CONTROLLER://:9093"
+        - name: KAFKA_CFG_ADVERTISED_LISTENERS
+          value: "PLAINTEXT://:9092"
+        - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+          value: "PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT"
+        - name: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
+          value: "CONTROLLER"
+        - name: KAFKA_CFG_INTER_BROKER_LISTENER_NAME
+          value: "PLAINTEXT"
+        # Clustering
+        - name: KAFKA_CFG_OFFSETS_TOPIC_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_CFG_TRANSACTION_STATE_LOG_REPLICATION_FACTOR
+          value: "3"
+        - name: KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR
+          value: "2"

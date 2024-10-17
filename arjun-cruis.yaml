@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cruise-control-deployment
+  labels:
+    app: cruise-control
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cruise-control
+  template:
+    metadata:
+      labels:
+        app: cruise-control
+    spec:
+      containers:
+      - name: cruise-control
+        image: arjun/cruise-control:v3
+        ports:
+        - containerPort: 8090  # Port for Cruise Control UI
+        - containerPort: 42675  # Port for Cruise Control REST API
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cruise-control-service
+  labels:
+    app: cruise-control
+spec:
+  type: NodePort  
+  ports:
+  - port: 8090
+    targetPort: 8090
+    protocol: TCP
+    name: ui
+    nodePort: 30001  # Expose 8090 as 35000 externally
+  - port: 42675
+    targetPort: 42675
+    protocol: TCP
+    name: rest-api
