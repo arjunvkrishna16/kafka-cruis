@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: kafka-cruis
 spec:
-  minReadySeconds: 3
-  revisionHistoryLimit: 5
+  minReadySeconds: 1
+  revisionHistoryLimit: 2
   progressDeadlineSeconds: 60
   strategy:
     rollingUpdate:
@@ -12,57 +12,27 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: podinfo
+      app: kafka-cruis
   template:
     metadata:
       annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "9797"
       labels:
-        app: podinfo
+        app: kafka-cruis
     spec:
       containers:
-      - name: podinfod
-        image: ghcr.io/stefanprodan/podinfo:6.7.1
+      - name: kafka-cruis
+        image: arjun/cruise-control:v4
         imagePullPolicy: IfNotPresent
         ports:
-        - name: http
-          containerPort: 9898
+        - name: ui
+          containerPort: 8090
           protocol: TCP
-        - name: http-metrics
-          containerPort: 9797
+        - name: api
+          containerPort: 42675
           protocol: TCP
-        - name: grpc
-          containerPort: 9999
-          protocol: TCP
-        command:
-        - ./podinfo
-        - --port=9898
-        - --port-metrics=9797
-        - --grpc-port=9999
-        - --grpc-service-name=podinfo
-        - --level=info
-        - --random-delay=false
-        - --random-error=false
         env:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
-        livenessProbe:
-          exec:
-            command:
-            - podcli
-            - check
-            - http
-            - localhost:9898/healthz
-          initialDelaySeconds: 5
-          timeoutSeconds: 5
-        readinessProbe:
-          exec:
-            command:
-            - podcli
-            - check
-            - http
-            - localhost:9898/readyz
           initialDelaySeconds: 5
           timeoutSeconds: 5
         resources:
@@ -72,9 +42,3 @@ spec:
           requests:
             cpu: 100m
             memory: 64Mi
-        volumeMounts:
-          - name: data
-            mountPath: /data
-      volumes:
-        - name: data
-          emptyDir: {}
