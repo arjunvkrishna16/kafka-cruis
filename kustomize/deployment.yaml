@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafka-cruis
+  name: kafka-cruis-control
 spec:
   minReadySeconds: 1
   revisionHistoryLimit: 2
@@ -12,15 +12,15 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: kafka-cruis
+      app: kafka-cruis-control
   template:
     metadata:
       annotations:
       labels:
-        app: kafka-cruis
+        app: kafka-cruis-control
     spec:
       containers:
-      - name: kafka-cruis
+      - name: kafka-cruis-control
         image: arjunvkrishna/cruise-control:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
