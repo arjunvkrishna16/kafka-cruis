@@ -32,7 +32,7 @@ spec:
       containers:
       - name: kafka-0
         #image: docker.io/arjun/kafka:v2
-        image: arjun/kafka:v2
+        image: arjunvkrishna/kafka:1.0.1
         ports:
         - containerPort: 9092
         env:
@@ -98,7 +98,7 @@ spec:
       containers:
       - name: kafka-1
         #image: docker.io/arjun/kafka:v2
-        image: arjun/kafka:v2
+        image: arjunvkrishna/kafka:1.0.1
         ports:
         - containerPort: 9092
         env:
@@ -164,7 +164,7 @@ spec:
       containers:
       - name: kafka-2
         #image: docker.io/arjun/kafka:v2
-        image: arjun/kafka:v2
+        image: arjunvkrishna/kafka:1.0.1
         ports:
         - containerPort: 9092
         env:

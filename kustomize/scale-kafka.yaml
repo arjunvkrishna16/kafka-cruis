@@ -30,7 +30,7 @@ spec:
       containers:
       - name: kafka-3
         #image: docker.io/bitnami/kafka:3.8
-        image: arjun/kafka:v2
+        image: arjunvkrishna/kafka:1.0.1
         ports:
         - containerPort: 9092
         env:
@@ -96,7 +96,7 @@ spec:
       containers:
       - name: kafka-4
         #image: docker.io/bitnami/kafka:3.8
-        image: arjun/kafka:v2
+        image: arjunvkrishna/kafka:1.0.1
         ports:
         - containerPort: 9092
         env:

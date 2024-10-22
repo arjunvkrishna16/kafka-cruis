@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: kafka-cruis
-        image: arjun/cruise-control:v1
+        image: arjunvkrishna/cruise-control:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
         - name: ui
