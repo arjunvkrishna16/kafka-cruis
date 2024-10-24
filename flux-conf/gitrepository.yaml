@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: kafka-cruis
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/arjunvkrishna16/kafka-cruis.git  # Use your correct repo URL
+  ref:
+    branch: main  # Use the branch you're deploying from
