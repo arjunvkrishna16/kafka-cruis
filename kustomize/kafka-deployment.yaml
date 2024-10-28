@@ -49,6 +49,14 @@ spec:
           value: "2"
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
+        volumeMounts:
+        - name: kafka-log
+          mountPath: /var/lib/kafka/data  # Inside the container
+      volumes:
+      - name: kafka-log-0
+        hostPath:
+          path: /home/arjun_vk/k8s/kafka/kafka-ui/flux/log/kafka-0  # Local path on the host
+          type: DirectoryOrCreate
 
 ---
 apiVersion: apps/v1
@@ -102,7 +110,14 @@ spec:
           value: "2"
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
-
+        volumeMounts:
+        - name: kafka-log01
+          mountPath: /var/lib/kafka/data  # Inside the container
+      volumes:
+      - name: kafka-log
+        hostPath:
+          path: /home/arjun_vk/k8s/kafka/kafka-ui/flux/log/kafka-1  # Local path on the host
+          type: DirectoryOrCreate
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -155,3 +170,11 @@ spec:
           value: "2"
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
+        volumeMounts:
+        - name: kafka-log-2
+          mountPath: /var/lib/kafka/data  # Inside the container
+      volumes:
+      - name: kafka-log
+        hostPath:
+          path: /home/arjun_vk/k8s/kafka/kafka-ui/flux/log/kafka-2  # Local path on the host
+          type: DirectoryOrCreate
