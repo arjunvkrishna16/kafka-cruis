@@ -51,7 +51,7 @@ spec:
           value: "600000"
         volumeMounts:
         - name: kafka-log-0
-          mountPath: /bitnami/kafka
+          mountPath: /bitnami/kafka/
       volumes:
       - name: kafka-log-0
         hostPath:
@@ -112,7 +112,7 @@ spec:
           value: "600000"
         volumeMounts:
         - name: kafka-log-1
-          mountPath: /bitnami/kafka
+          mountPath: /bitnami/kafka/
       volumes:
       - name: kafka-log-1
         hostPath:
@@ -172,7 +172,7 @@ spec:
           value: "600000"
         volumeMounts:
         - name: kafka-log-2
-          mountPath: /bitnami/kafka/  # Inside the container
+          mountPath: /bitnami/kafka/
       volumes:
       - name: kafka-log-2
         hostPath:
