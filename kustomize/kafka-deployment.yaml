@@ -53,7 +53,7 @@ spec:
         - name: kafka-storage-0
           mountPath: /bitnami/kafka/
       volumes:
-      - name: kafka-storage
+      - name: kafka-storage-0
         persistentVolumeClaim:
           claimName: kafka-0-pvc
 ---
@@ -112,7 +112,7 @@ spec:
         - name: kafka-storage-1
           mountPath: /bitnami/kafka/
       volumes:
-      - name: kafka-storage
+      - name: kafka-storage-1
         persistentVolumeClaim:
           claimName: kafka-1-pvc
 ---
@@ -171,6 +171,6 @@ spec:
         - name: kafka-storage-2
           mountPath: /bitnami/kafka/
       volumes:
-      - name: kafka-storage
+      - name: kafka-storage-2
         persistentVolumeClaim:
           claimName: kafka-2-pvc
