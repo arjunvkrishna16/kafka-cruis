@@ -3,8 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: kafka-0-pvc
 spec:
-  storageClassName: ""
-  volumeName: kafka-0-pvc
+  storageClassName: hostpath
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
@@ -14,8 +15,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: kafka-1-pvc
 spec:
-  storageClassName: ""
-  volumeName: kafka-1-pvc
+  storageClassName: hostpath
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
@@ -25,8 +27,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: kafka-2-pvc
 spec:
-  storageClassName: ""
-  volumeName: kafka-2-pvc
+  storageClassName: hostpath
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi

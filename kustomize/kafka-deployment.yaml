@@ -50,9 +50,12 @@ spec:
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
-        - name: kafka-0-pvc
+        - name: kafka-storage-0
           mountPath: /bitnami/kafka/
-
+      volumes:
+      - name: kafka-storage
+        persistentVolumeClaim:
+          claimName: kafka-0-pvc
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -106,8 +109,12 @@ spec:
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
-        - name: kafka-1-pvc
+        - name: kafka-storage-1
           mountPath: /bitnami/kafka/
+      volumes:
+      - name: kafka-storage
+        persistentVolumeClaim:
+          claimName: kafka-1-pvc
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -161,5 +168,9 @@ spec:
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
-        - name: kafka-2-pvc
+        - name: kafka-storage-2
           mountPath: /bitnami/kafka/
+      volumes:
+      - name: kafka-storage
+        persistentVolumeClaim:
+          claimName: kafka-2-pvc
