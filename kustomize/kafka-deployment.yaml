@@ -50,13 +50,16 @@ spec:
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
-        - name: kafka-log-0
+        - name: kafka-storage
           mountPath: /bitnami/kafka/
-      volumes:
-      - name: kafka-log-0
-        hostPath:
-          path: /home/arjun_vk/k8s/kafka/kafka-ui/flux/log/kafka-0
-          type: Directory
+  volumeClaimTemplates:
+  - metadata:
+      name: kafka-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
 
 ---
 apiVersion: apps/v1
