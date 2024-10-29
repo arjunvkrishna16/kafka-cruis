@@ -5,6 +5,6 @@ resources:
   - service.yaml
   - kafka-deployment.yaml
   - kafka-service.yaml
-  #- scale-kafka.yaml
+  - scale-kafka.yaml
   - scale-service-kafka.yaml
   - pvc.yaml
