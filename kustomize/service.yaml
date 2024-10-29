@@ -11,6 +11,7 @@ spec:
       port: 8090
       protocol: TCP
       targetPort: 8090
+      nodePort: 30009
     - port: 42675
       targetPort: 42675
       protocol: TCP
