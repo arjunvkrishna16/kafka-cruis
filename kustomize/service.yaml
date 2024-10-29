@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: kafka-cruis-control
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: kafka-cruis-control
   ports:
