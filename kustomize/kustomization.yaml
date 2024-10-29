@@ -8,4 +8,3 @@ resources:
   - scale-kafka.yaml
   - scale-service-kafka.yaml
   - pvc.yaml
-  - pv.yaml
