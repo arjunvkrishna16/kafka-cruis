@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kafka-producer-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: kafka-producer
+        image: arjunvkrishna/kafka:1.0.1
+        command:
+        - /bin/sh
+        - -c
+        - |
+          while true; do
+                   kafka-console-producer.sh --bootstrap-server kafka-0:9092 --topic kafka-topic < /opt/bitnami/kafka/bin/kafka-topic.json
+                   sleep 1
+                 done
+        volumeMounts:
+          - name: config-volume
+            mountPath: /opt/bitnami/kafka/bin/kafka-topic.json
+            subPath: kafka-topic.json
+      volumes:
+        - name: config-volume
+          configMap:
+            name: kafka-topic-config
+      restartPolicy: Never
+  backoffLimit: 4
