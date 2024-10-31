@@ -21,13 +21,11 @@ spec:
         - name: DYNAMIC_CONFIG_ENABLED
           value: "true"
         - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
-          value: "kafka-0:9092"
+          value: "kafka-0:9092,kafka-1:9092,kafka-2:9092"
         - name: SERVER_SERVLET_CONTEXT_PATH
           value: "/kafbat-ui"
         - name: KAFKA_CLUSTERS_0_NAME
           value: "KAFKA_CLUSTERS_UI"
-        - name: KAFKA_CLUSTERS_0_METRICS_PORT
-          value: "9997"
         - name: AUTH_TYPE
           value: "LOGIN_FORM"
         - name: SPRING_SECURITY_USER_NAME
