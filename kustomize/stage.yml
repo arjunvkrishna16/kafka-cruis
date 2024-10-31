@@ -1,0 +1,14 @@
+datacenter: gcp
+http_wallet_proxy_port: "{{ DMZ_GKE_PROXY_PORTS['novibetbrazil'] }}"
+#http_wallet_cert_file: "{{ INTEGRATION | lower }}-{{ ENVIRONMENT | lower }}.pem"
+#http_wallet_cert_ca_file: "{{ INTEGRATION | lower }}-{{ ENVIRONMENT | lower }}-ca.pem"
+#http_wallet_ssl_proxy_cipher_suite: []
+http_vhost_name: 'novibetbrazil.stg-gcplatam.inspiredvirgo.com'
+http_proxy_pass_rules:
+- path: '/'
+  targetUrl: 'https://inspiredgaming.lat-brs.stg.apinovi.com/'
+#http_wallet_set_cookie: false
+#http_wallet_resolver: 10.200.1.70
+custom_log_format: 'combined'
+#disable_reuse: 'on'
+#retry_required: 0
