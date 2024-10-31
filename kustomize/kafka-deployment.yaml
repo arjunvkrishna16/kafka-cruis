@@ -47,6 +47,8 @@ spec:
           value: "3"
         - name: KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR
           value: "2"
+        - name: KAFKA_CFG_NUM_PARTITIONS
+          value: "32"
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
@@ -106,6 +108,8 @@ spec:
           value: "3"
         - name: KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR
           value: "2"
+        - name: KAFKA_CFG_NUM_PARTITIONS
+          value: "32"
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
@@ -165,6 +169,8 @@ spec:
           value: "3"
         - name: KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR
           value: "2"
+        - name: KAFKA_CFG_NUM_PARTITIONS
+          value: "32"
         - name: KAFKA_CFG_LOG_RETENTION_HOURS
           value: "600000"
         volumeMounts:
