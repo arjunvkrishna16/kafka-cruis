@@ -3,10 +3,10 @@ kind: Kustomization
 resources:
   #- deployment.yaml
   #- service.yaml
-  #- kafka-deployment.yaml
-  #- kafka-service.yaml
+  - kafka-deployment.yaml
+  - kafka-service.yaml
   #- scale-kafka.yaml
   #- scale-service-kafka.yaml
-  #- pvc.yaml
+  - pvc.yaml
   #- kafka-job.yaml
   #- job-cm.yaml
