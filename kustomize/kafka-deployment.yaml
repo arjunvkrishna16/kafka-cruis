@@ -17,6 +17,13 @@ spec:
       - name: kafka-0
         #image: docker.io/arjun/kafka:v2
         image: arjunvkrishna/kafka:1.0.1
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "250m"
+          limits:
+            memory: "450Mi"
+            cpu: "100m"
         ports:
         - containerPort: 9092
         env:
@@ -78,6 +85,13 @@ spec:
       - name: kafka-1
         #image: docker.io/arjun/kafka:v2
         image: arjunvkrishna/kafka:1.0.1
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "250m"
+          limits:
+            memory: "450Mi"
+            cpu: "100m"
         ports:
         - containerPort: 9092
         env:
@@ -139,6 +153,13 @@ spec:
       - name: kafka-2
         #image: docker.io/arjun/kafka:v2
         image: arjunvkrishna/kafka:1.0.1
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "250m"
+          limits:
+            memory: "450Mi"
+            cpu: "100m"
         ports:
         - containerPort: 9092
         env:
