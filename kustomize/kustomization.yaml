@@ -6,3 +6,4 @@ resources:
   - ./kafka
   - ./kafka-ui
   - ./scale-kafka
+  - ./traefik

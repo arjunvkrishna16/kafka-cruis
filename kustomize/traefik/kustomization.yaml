@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - role.yml
+  - account.yml
+  - role-binding.yml
+  - traefik.yml
+  - kustomization.yaml
