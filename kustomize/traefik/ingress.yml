@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: "traefik"
   rules:
-    - host: "your-domain.com"
+    - host:
       http:
         paths:
           - path: /cruiscontrol
@@ -27,7 +27,7 @@ metadata:
 spec:
   ingressClassName: "traefik"
   rules:
-    - host: "your-domain.com"
+    - host:
       http:
         paths:
           - path: /kafka-ui
