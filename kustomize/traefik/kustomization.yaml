@@ -5,6 +5,5 @@ resources:
   - account.yml
   - role-binding.yml
   - traefik.yml
-  - kustomization.yaml
   - traefik-services.yml
   - ingress.yml
