@@ -37,3 +37,10 @@ spec:
                 name: kafka-ui
                 port:
                   number: 8080
+          # - path: /cruiscontrol
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: kafka-cruise-control
+          #       port:
+          #         number: 8090
