@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kafka-ui-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /kafka-ui
+        pathType: Prefix
+        backend:
+          service:
+            name: kafka-ui
+            port: 8080
+              name: web
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kafka-cruis-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /cruiscontrol
+        pathType: Prefix
+        backend:
+          service:
+            name: kafka-cruis-control
+            port: 8090
+              name: ui

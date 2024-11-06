@@ -7,3 +7,4 @@ resources:
   - traefik.yml
   - kustomization.yaml
   - traefik-services.yml
+  - ingress.yml
