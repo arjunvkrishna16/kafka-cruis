@@ -1,42 +1,62 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: kafka-cruise-control
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: "web"
+  name: kafka-ingressroute
 spec:
-  ingressClassName: "traefik"
-  rules:
-    - host:
-      http:
-        paths:
-          - path: /cruiscontrol
-            pathType: Prefix
-            backend:
-              service:
-                name: kafka-cruis-control
-                port:
-                  number: 8090
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: kafka-ui-ingress
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: "web"
-spec:
-  ingressClassName: "traefik"
-  rules:
-    - host:
-      http:
-        paths:
-          - path: /kafka-ui
-            pathType: Prefix
-            backend:
-              service:
-                name: kafka-ui
-                port:
-                  number: 8080
+  entryPoints:
+    - web  # Change to websecure if using HTTPS
+  routes:
+    - match: PathPrefix(`/kafka-ui`)
+      kind: Rule
+      services:
+        - name: kafka-ui
+          port: 8080
+    - match: PathPrefix(`/cruiscontrol`)
+      kind: Rule
+      services:
+        - name: kafka-cruis-control
+          port: 8090
+
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: kafka-cruise-control
+#   annotations:
+#     traefik.ingress.kubernetes.io/router.entrypoints: "web"
+# spec:
+#   ingressClassName: "traefik"
+#   rules:
+#     - host:
+#       http:
+#         paths:
+#           - path: /cruiscontrol
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: kafka-cruis-control
+#                 port:
+#                   number: 8090
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: kafka-ui-ingress
+#   annotations:
+#     traefik.ingress.kubernetes.io/router.entrypoints: "web"
+# spec:
+#   ingressClassName: "traefik"
+#   rules:
+#     - host:
+#       http:
+#         paths:
+#           - path: /kafka-ui
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: kafka-ui
+#                 port:
+#                   number: 8080
           # - path: /cruiscontrol
           #   pathType: Prefix
           #   backend:
