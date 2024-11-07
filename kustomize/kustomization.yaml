@@ -5,5 +5,5 @@ resources:
   - ./jobs
   - ./kafka
   - ./kafka-ui
-  #- ./scale-kafka
+  - ./scale-kafka
   - ./traefik
