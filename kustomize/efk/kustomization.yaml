@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - kube-logging.yaml
-  - elasticsearch_svc.yaml
-  - elasticsearch_statefulset.yaml
-  - kibana.yaml
-  - kibana_svc.yaml
-  - fluentd.yaml
-  - counter.yaml
+  # - kube-logging.yaml
+  # - elasticsearch_svc.yaml
+  # - elasticsearch_statefulset.yaml
+  # - kibana.yaml
+  # - kibana_svc.yaml
+  # - fluentd.yaml
+  # - counter.yaml
