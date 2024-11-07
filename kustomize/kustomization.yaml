@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   #- ./cruis-control
   #- ./jobs
-  #- ./kafka
+  - ./kafka
   #- ./kafka-ui
   #- ./scale-kafka
   - ./traefik
