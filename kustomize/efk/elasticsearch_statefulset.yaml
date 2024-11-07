@@ -30,7 +30,7 @@ spec:
           name: inter-node
           protocol: TCP
         volumeMounts:
-        - name: logging-data
+        - name: data
           mountPath: /usr/share/elasticsearch/data
         env:
           - name: cluster.name
@@ -66,7 +66,7 @@ spec:
           privileged: true
   volumeClaimTemplates:
   - metadata:
-      name: logging-data
+      name: data
       labels:
         app: elasticsearch
     spec:
@@ -74,4 +74,4 @@ spec:
       storageClassName: hostpath
       resources:
         requests:
-          storage: 150Gi
+          storage: 50Gi
