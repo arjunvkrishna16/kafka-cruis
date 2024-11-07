@@ -1,5 +1,5 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: elasticsearch
   namespace: kube-logging
@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: elasticsearch
-  clusterIP: None
+  type: NodePort
   ports:
     - port: 9200
       name: rest
