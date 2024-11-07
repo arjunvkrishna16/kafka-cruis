@@ -7,4 +7,4 @@ resources:
   - ./kafka-ui
   - ./scale-kafka
   - ./traefik
-  - ./efk
+  #- ./efk
