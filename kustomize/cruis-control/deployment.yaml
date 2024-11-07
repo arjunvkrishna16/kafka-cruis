@@ -22,7 +22,7 @@ spec:
       containers:
       - name: kafka-cruis-control
         image: arjunvkrishna/cruise-control:1.0.4
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: ui
           containerPort: 8090
@@ -37,8 +37,8 @@ spec:
           timeoutSeconds: 5
         resources:
           limits:
-            cpu: 2000m
-            memory: 512Mi
+            cpu: 200m
+            memory: 300Mi
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 50m
+            memory: 50Mi
