@@ -5,5 +5,6 @@ resources:
   - elasticsearch_svc.yaml
   - elasticsearch_statefulset.yaml
   - kibana.yaml
+  - kibana_svc.yaml
   - fluentd.yaml
   - counter.yaml
