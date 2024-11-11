@@ -17,6 +17,13 @@ spec:
       - name: kafka-3
         #image: docker.io/bitnami/kafka:3.8
         image: arjunvkrishna/kafka:1.0.1
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
         ports:
         - containerPort: 9092
         env:
@@ -68,6 +75,13 @@ spec:
       - name: kafka-4
         #image: docker.io/bitnami/kafka:3.8
         image: arjunvkrishna/kafka:1.0.1
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
         ports:
         - containerPort: 9092
         env:

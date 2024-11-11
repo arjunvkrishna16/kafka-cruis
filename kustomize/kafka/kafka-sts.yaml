@@ -22,7 +22,7 @@ spec:
             memory: "50Mi"
             cpu: "100m"
           limits:
-            memory: "450Mi"
+            memory: "512Mi"
             cpu: "250m"
         ports:
         - containerPort: 9092
@@ -90,7 +90,7 @@ spec:
             memory: "50Mi"
             cpu: "100m"
           limits:
-            memory: "450Mi"
+            memory: "512Mi"
             cpu: "250m"
         ports:
         - containerPort: 9092
@@ -158,7 +158,7 @@ spec:
             memory: "50Mi"
             cpu: "100m"
           limits:
-            memory: "450Mi"
+            memory: "512Mi"
             cpu: "250m"
         ports:
         - containerPort: 9092
