@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: kafka-producer-job
 spec:
-  parallelism: 3
+  parallelism: 1
   template:
     spec:
       containers:
