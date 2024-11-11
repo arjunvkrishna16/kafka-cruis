@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: kafka-cruis-control
 spec:
+  replicas: 2
   minReadySeconds: 1
   revisionHistoryLimit: 2
   progressDeadlineSeconds: 60
@@ -34,7 +35,7 @@ spec:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
           initialDelaySeconds: 5
-          timeoutSeconds: 5
+          timeoutSeconds: 10
         resources:
           limits:
             cpu: 200m
