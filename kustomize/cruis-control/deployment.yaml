@@ -35,9 +35,9 @@ spec:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
         - name: KAFKA_URL
-          value: kafka-0
+          value: "kafka-0"
         - name: KAFKA_PORT
-          value: 9092
+          value: "9092"
        # - name: KAFKA_URL
        #   value: kafka-0:9092,kafka-1:9092,kafka-2:9092
 
