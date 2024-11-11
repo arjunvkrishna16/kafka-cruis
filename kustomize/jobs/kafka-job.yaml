@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: kafka-producer-job
 spec:
-  parallelism: 1
+  parallelism: 3
   template:
     spec:
       containers:
@@ -26,4 +26,4 @@ spec:
           configMap:
             name: kafka-topic-config
       restartPolicy: Never
-  backoffLimit: 4
+  backoffLimit: 10
