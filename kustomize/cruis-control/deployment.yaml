@@ -34,6 +34,13 @@ spec:
         env:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
+        - name: KAFKA_URL
+          value: kafka-0
+        - name: KAFKA_PORT
+          value: 9092
+       # - name: KAFKA_URL
+       #   value: kafka-0:9092,kafka-1:9092,kafka-2:9092
+
           initialDelaySeconds: 5
           timeoutSeconds: 10
         resources:
