@@ -35,11 +35,42 @@ spec:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
         - name: KAFKA_URL
-          value: "kafka-0"
-        - name: KAFKA_PORT
-          value: "9092"
-       # - name: KAFKA_URL
-       #   value: kafka-0:9092,kafka-1:9092,kafka-2:9092
+          value: "kafka-0:9092,kafka-1:9092,kafka-2:9092"
+        - name: FAST_MODE
+          value: "true"
+        - name: MIN.VALID.PARTITION.RATIO
+          value: ".8"
+        - name: CPU.BALANCE.THRESHOLD
+          value: "1.05"
+        - name: DISK.BALANCE.THRESHOLD
+          value: "1.05"
+        - name: NETWORK.INBOUND.BALANCE.THRESHOLD
+          value: "1.05"
+        - name: NETWORK.OUTBOUND.BALANCE.THRESHOLD
+          value: "1.05"
+        - name: REPLICA.COUNT.BALANCE.THRESHOLD
+          value: "1.05"
+        - name: CPU.CAPACITY.THRESHOLD
+          value: ".3"
+        - name: DISK.CAPACITY.THRESHOLD
+          value: ".5"
+        - name: NETWORK.INBOUND.CAPACITY.THRESHOLD
+          value: ".8"
+        - name: NETWORK.OUTBOUND.CAPACITY.THRESHOLD
+          value: ".8"
+        - name: CPU.LOW.UTILIZATION.THRESHOLD
+          value: ".1"
+        - name: DISK.LOW.UTILIZATION.THRESHOLD
+          value: ".1"
+        - name: NETWORK.INBOUND.LOW.UTILIZATION.THRESHOLD
+          value: ".1"
+        - name: NETWORK.OUTBOUND.LOW.UTILIZATION.THRESHOLD
+          value: ".1"
+        - name: METRIC.ANOMALY.PERCENTILE.UPPER.THRESHOLD
+          value: "80.0"
+        - name: METRIC.ANOMALY.PERCENTILE.LOWER.THRESHOLD
+          value: "20.0"
+
 
           initialDelaySeconds: 5
           timeoutSeconds: 10
