@@ -1,3 +1,4 @@
-#FROM adobe/cruise-control:latest
-FROM arjunvkrishna/cruise-control:1.0.4
-COPY ./cruisecontrol.properties /opt/cruise-control/cruisecontrol.properties
+FROM adobe/cruise-control:latest
+COPY ./cruisecontrol.properties /opt/cruise-control/config/cruisecontrol.properties
+COPY start.sh /opt/cruise-control/start.sh
+RUN chmod +x /opt/cruise-control/start.sh
