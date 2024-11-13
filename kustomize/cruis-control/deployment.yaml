@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: kafka-cruis-control
-        image: arjunvkrishna/cruise-control:1.0.5
+        image: arjunvkrishna/cruise-control:1.0.6
         imagePullPolicy: Always
         ports:
         - name: ui
